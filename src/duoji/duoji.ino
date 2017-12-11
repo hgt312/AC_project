@@ -20,13 +20,15 @@ void loop()
   if (irrecv.decode(&results)) {
     Serial.println(results.value, HEX);
     if (results.value == 0xFFA25D) {
-      myservo.write(45);
-      // delay(1000);
-      // myservo.write(0);
+      myservo.write(70);
+      delay(400);
+      myservo.write(90);
     } if (results.value == 0xFF629D) {
       myservo.write(90);
     } if (results.value == 0xFFE21D) {
-      myservo.write(135);
+      myservo.write(110);
+      delay(400);
+      myservo.write(90);
     }
     irrecv.resume(); // Receive the next value
   }
