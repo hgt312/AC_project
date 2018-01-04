@@ -26,13 +26,13 @@ bool light_mode = false;
 uint32_t timer = 0;
 
 void open_switch_1() {
-  servo_0.write(servo_on + servo_need);
+  servo_0.write(servo_on);
   delay(20);
   servo_0.write(servo_on);
   delay(20);
   servo_0.write(servo_on);
   switch_1_state = true;
-  delay(100);
+  delay(200);
   servo_0.write(servo_reset);
   delay(100);
 }
@@ -43,7 +43,7 @@ void close_switch_1() {
   delay(20);
   servo_0.write(servo_off);
   switch_1_state = false;
-  delay(100);
+  delay(200);
   servo_0.write(servo_reset);
   delay(100);
 }
@@ -54,7 +54,7 @@ void open_switch_2() {
   delay(20);
   servo_1.write(servo_off);
   switch_2_state = true;
-  delay(100);
+  delay(200);
   servo_1.write(servo_reset);
   delay(100);
 }
@@ -65,7 +65,7 @@ void close_switch_2() {
   delay(20);
   servo_1.write(servo_on);
   switch_2_state = false;
-  delay(100);
+  delay(200);
   servo_1.write(servo_reset);
   delay(100);
 }
@@ -117,6 +117,10 @@ void loop() {
         break;
       case 3:
         open_switch_2();
+        break;
+      case 4:
+        light_mode = true;
+        timer = millis();
         break;
       default:
         break;
