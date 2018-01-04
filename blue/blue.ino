@@ -6,7 +6,7 @@ byte serialA;
 // 舵机、开关相关变量
 Servo servo_0;
 Servo servo_1;
-int servo_need = 20;
+int servo_need = 30;
 int servo_reset = 90;
 int servo_on = servo_reset + servo_need;
 int servo_off = servo_reset - servo_need;
@@ -121,6 +121,12 @@ void loop() {
       case 4:
         light_mode = true;
         timer = millis();
+        break;
+      case 5:
+        servo_need += 1;
+        break;
+      case 6:
+        servo_need += -1;
         break;
       default:
         break;
